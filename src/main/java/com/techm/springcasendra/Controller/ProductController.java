@@ -1,6 +1,7 @@
 package com.techm.springcasendra.Controller;
 
 import com.techm.springcasendra.domain.Product;
+import com.techm.springcasendra.repositories.ProductRepository;
 import com.techm.springcasendra.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -14,7 +15,8 @@ import java.util.UUID;
 public class ProductController {
     @Autowired
     private ProductService productService;
-
+    @Autowired
+    private ProductRepository productRepository;
 
     @RequestMapping({"/product/list", "/product"})
     public List<Product> listProducts(Model model) {
@@ -38,4 +40,11 @@ public class ProductController {
         productService.delete(UUID.fromString(id));
         return "redirect:/product/list";
     }
+    @RequestMapping("/price/{price}")
+    public List<Product> getbyprice(@PathVariable int price)
+    {
+        return productRepository.findByPrice(price);
+    }
+
+
 }
