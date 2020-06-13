@@ -1,0 +1,10 @@
+Spring and cassendra Project
+1.Application properties files
+2. open cassendra shell :cqlsh
+3.DESCRIBE keyspaces;
+4.DESCRIBE tables;
+5.to run a  java appliaction in background of linux server
+      nohup java -Dserver.port=8085 -jar springcasendra-0.0.1-SNAPSHOT.jar &
+6. to see log
+   tail -f filename
+
